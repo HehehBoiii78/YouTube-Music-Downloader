@@ -127,10 +127,13 @@ move Redistributables\FFMPEG\ffmpeg-master-latest-win64-gpl-shared\LICENSE.txt R
 rd Redistributables\FFMPEG\ffmpeg-master-latest-win64-gpl-shared >nul 2>&1
 del /q Redistributables\FFMPEG\ffmpeg-master-latest-win64-gpl-shared.zip
 )
+if not exist "Redistributables\AlbumArtDownloader\aad.exe" (
 if exist "C:\Program Files\AlbumArtDownloader" (
 copy /y "C:\Program Files\AlbumArtDownloader" "Redistributables\AlbumArtDownloader" >nul 2>&1
 del /q "Redistributables\AlbumArtDownloader\AlbumArt.exe"
+del /q "Redistributables\AlbumArtDownloader\uninst.exe"
 Redistributables\msg.exe %username% All required files from AlbumArtDownloader have been copied to this project folder. You may uninstall the program now if you want.
+)
 )
 goto integritycheck_resume
 
